@@ -1,0 +1,16 @@
+package s6.dsy2201.ordenes_compra.repositorio;
+
+
+import s6.dsy2201.ordenes_compra.modelo.OrdenCompra;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface OrdenCompraRepository extends JpaRepository<OrdenCompra, Integer> {
+
+    List<OrdenCompra> findByEstado(String estado);
+
+    List<OrdenCompra> findByProductoContainingIgnoreCase(String producto);
+}
